@@ -1,0 +1,26 @@
+{
+  "name": "datastructures",
+  "version": "1.0.0",
+  "description": "Elementary data structures in JavaScript",
+  "main": "linkedList.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --reporter=nyan || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betsystevens/dataStructures.git"
+  },
+  "author": "Betsy Stevens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betsystevens/dataStructures/issues"
+  },
+  "homepage": "https://github.com/betsystevens/dataStructures#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.2"
+  }
+}
