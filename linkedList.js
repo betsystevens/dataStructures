@@ -1,6 +1,10 @@
 'use strict';
 /**
  *  Linked List
+ *   insert(item)  : inserts item to then end of the list
+ *   delete(item)  : deletes all occurrences of item, 
+ *                    returns 0 if item not found or count of items deleted 
+ *   getList() : returns an array of all the items in the list
  * 
  */
 
@@ -14,7 +18,6 @@ const node = () => {
 const linkedList = {
     length : 0,
     start : null,
-    end : null,
 
     insert : function (x) {
       const newNode = node();
@@ -36,26 +39,32 @@ const linkedList = {
     delete : function(x) {
       let current = this.start;
       let prev = this.start;
+      let deleted = 0;
       while (current) {
         if (current.value === x) {
-          this.length -= 1;
           if (current === this.start) this.start = current.next; 
           prev.next = current.next;
           current = current.next;
+          this.length -= 1;
+          deleted += 1;
+        } else {
+          prev = current;
+          current = (current) ? current.next : null;
         }
-        prev = current;
-        current = (current) ? current.next : null;
       }
+      return deleted;
     },
-
-    print : function() {
-      console.log(`Length: ${this.length}`)
+    getList : function() {
       let current = this.start;
+      let arr = [];
       while (current) {
-        console.log(current.value);
-        current = current.next;
+        arr.push(current.value);
+        current = current.next
       }
+      return arr;
     }
 }
 
 const ll = Object.create(linkedList);
+
+exports.linkedList = linkedList;
